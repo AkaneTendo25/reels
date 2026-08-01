@@ -18,8 +18,8 @@ jobs:
         with:
           version: "1.11"
       - uses: julia-actions/cache@v3
-      - name: Install SentencePiece development files
-        run: sudo apt-get update && sudo apt-get install -y libsentencepiece-dev
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg libsentencepiece-dev
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
 
