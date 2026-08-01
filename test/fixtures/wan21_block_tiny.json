@@ -1,0 +1,16 @@
+{
+  "format": "reels-parity-provenance-v1",
+  "upstream_repository": "https://github.com/Wan-Video/Wan2.1",
+  "upstream_commit": "9737cba9c1c3c4d04b33fcad41c111989865d315",
+  "upstream_file": "wan/modules/model.py",
+  "model_checkpoint": "Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+  "checkpoint_sha256": "96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f",
+  "seed": "20250301",
+  "dtype": "float32",
+  "attention_reference": "torch.nn.functional.scaled_dot_product_attention",
+  "layout": "PyTorch B,L,C; weights use official state_dict keys",
+  "input_shape": [2, 4, 24],
+  "output_shape": [2, 4, 24],
+  "max_absolute_tolerance": 0.00001,
+  "mean_absolute_tolerance": 0.000001
+}

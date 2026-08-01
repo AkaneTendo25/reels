@@ -1,0 +1,65 @@
+schema_version = 1
+seed = 42
+output_dir = "runs/wan21-1.3b-lora"
+
+[model]
+family = "wan21"
+variant = "t2v-1.3b"
+checkpoint = "/models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors"
+text_encoder_checkpoint = "/models/Wan2.1-T2V-1.3B-Diffusers/text_encoder"
+tokenizer_model = "/models/Wan2.1-T2V-1.3B-Diffusers/tokenizer/spiece.model"
+vae_checkpoint = "/models/Wan2.1-T2V-1.3B-Diffusers/vae/diffusion_pytorch_model.safetensors"
+precision = "bf16"
+
+[data]
+manifest = "datasets/example/dataset.toml"
+cache_dir = "datasets/example/.reels-cache"
+frame_buckets = [17, 33, 49]
+resolution_buckets = ["512x512", "768x432"]
+target_fps = 16
+workers = 4
+
+[adapter]
+rank = 32
+alpha = 32
+dropout = 0.0
+train_bias = false
+targets = "attention"
+
+[training]
+steps = 2000
+micro_batch_size = 1
+gradient_accumulation = 8
+learning_rate = 0.0001
+weight_decay = 0.01
+weight_decay_exclusions = ["bias$"]
+max_gradient_norm = 1.0
+activation_checkpointing = true
+checkpoint_interval = 1
+
+[training.scheduler]
+type = "constant"
+warmup_steps = 0
+
+[checkpoint]
+every_steps = 250
+keep_last = 3
+
+[distributed]
+enabled = false
+backend = "nccl"
+world_size = 0
+rank = -1
+local_rank = -1
+master_addr = "127.0.0.1"
+master_port = 29500
+timeout_seconds = 120.0
+
+[low_vram]
+frozen_weight_quantization = "none"
+cpu_offload = false
+
+[validation]
+every_steps = 250
+inference_steps = 20
+prompts = ["A red kite rises above a windy beach."]

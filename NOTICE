@@ -1,0 +1,36 @@
+Reels attribution and licensing notices
+=======================================
+
+Reels is licensed under the Apache License, Version 2.0. See `LICENSE`.
+
+Project status
+--------------
+
+Reels is an independent community implementation. It is not affiliated with,
+endorsed by, or an official project of Lightricks Ltd., Alibaba, or the Wan
+Video team. Model weights are not distributed with this repository.
+
+Wan 2.1 support
+---------------
+
+The files under `src/models/wan21`, corresponding mappings, preprocessing,
+training code, documentation, and parity fixtures reimplement architecture and
+interoperability conventions from the Wan 2.1 project.
+
+Upstream project: https://github.com/Wan-Video/Wan2.1
+Upstream license: Apache License 2.0.
+
+Wan-derived source notices and upstream provenance must be retained when the
+corresponding code or fixtures are redistributed.
+
+LTX-2.3 support
+---------------
+
+The files under `src/models/ltx23` and the corresponding training code are an
+independent implementation of checkpoint and runtime interoperability for
+LTX-2.3. No LTX-2 source code or model weights are distributed by Reels.
+
+Upstream project: https://github.com/Lightricks/LTX-2
+Model weights obtained from the upstream project are governed by their own
+license. Users must obtain those weights separately and comply with the terms
+that accompany them.

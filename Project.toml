@@ -1,0 +1,48 @@
+name = "Reels"
+uuid = "c343f9d2-47e8-4c1c-94dd-b918184f90d0"
+authors = ["Reels contributors"]
+version = "0.1.0"
+
+[deps]
+BFloat16s = "ab4f0b2a-ad5b-11e8-123f-65d77653426b"
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+NNlib = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
+NCCL_jll = "4d6d38e4-5b87-5e63-912a-873ff2d649b7"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+Sockets = "6462fe0b-24de-5631-8697-dd941f90decc"
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
+cuDNN = "02a925ec-e4fe-4b08-9a7e-0d78e3d38ccd"
+
+[compat]
+Aqua = "0.8"
+BFloat16s = "0.6"
+CUDA = "6.1"
+ChainRulesCore = "1.26.1"
+Dates = "1.11"
+Libdl = "1.11"
+LinearAlgebra = "1.11"
+NCCL_jll = "2.30"
+NNlib = "0.9"
+Random = "1.11"
+SHA = "0.7"
+Sockets = "1.11"
+SpecialFunctions = "2"
+TOML = "1"
+Test = "1.11"
+Zygote = "0.7.12"
+cuDNN = "6.1"
+julia = "1.11"
+
+[extras]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Aqua", "Test"]

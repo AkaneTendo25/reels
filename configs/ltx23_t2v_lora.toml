@@ -1,0 +1,71 @@
+schema_version = 1
+seed = 42
+output_dir = "runs/ltx23-t2v-lora"
+
+[model]
+family = "ltx23"
+variant = "video-only-22b-dev"
+checkpoint = "/models/LTX-2.3/ltx-2.3-22b-dev.safetensors"
+text_encoder_checkpoint = "/models/gemma-3-12b-it"
+tokenizer_model = "/models/gemma-3-12b-it/tokenizer.model"
+vae_checkpoint = "/models/LTX-2.3/ltx-2.3-22b-dev.safetensors"
+precision = "bf16"
+
+[data]
+manifest = "datasets/example/dataset.toml"
+cache_dir = "datasets/example/.reels-ltx23-cache"
+frame_buckets = [17, 33, 49]
+resolution_buckets = ["512x512", "768x448"]
+target_fps = 25
+workers = 4
+
+[flow_matching]
+timestep_sampling = "shifted_logit_normal"
+standard_deviation = 1.0
+epsilon = 0.001
+uniform_probability = 0.1
+
+[adapter]
+rank = 32
+alpha = 32
+dropout = 0.0
+train_bias = false
+targets = "attention"
+
+[training]
+steps = 2000
+micro_batch_size = 1
+gradient_accumulation = 8
+learning_rate = 0.0001
+weight_decay = 0.01
+weight_decay_exclusions = ["bias$"]
+max_gradient_norm = 1.0
+activation_checkpointing = true
+checkpoint_interval = 1
+
+[training.scheduler]
+type = "linear"
+warmup_steps = 100
+
+[checkpoint]
+every_steps = 250
+keep_last = 3
+
+[distributed]
+enabled = false
+backend = "nccl"
+world_size = 0
+rank = -1
+local_rank = -1
+master_addr = "127.0.0.1"
+master_port = 29500
+timeout_seconds = 120.0
+
+[low_vram]
+frozen_weight_quantization = "none"
+cpu_offload = false
+
+[validation]
+every_steps = 250
+inference_steps = 20
+prompts = ["A red kite rises above a windy beach."]

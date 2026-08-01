@@ -1,0 +1,19 @@
+{
+  "format": "reels-parity-provenance-v1",
+  "upstream_repository": "https://github.com/Wan-Video/Wan2.1",
+  "upstream_commit": "9737cba9c1c3c4d04b33fcad41c111989865d315",
+  "upstream_file": "wan/modules/vae.py",
+  "model_checkpoint": "Wan2.1_VAE.safetensors",
+  "checkpoint_sha256": "3ce0c02b9470532e7f63f3e2f8e83b0681fdeaa432e969c412482d2b3b78267b",
+  "seed": 119,
+  "dtype": "float32",
+  "source_layout": "PyTorch N,C,T,H,W",
+  "reels_layout": "C,T,H,W,B",
+  "input_shape": [3, 5, 4, 4, 1],
+  "latent_shape": [16, 3, 2, 2, 1],
+  "decoded_shape": [3, 5, 4, 4, 1],
+  "max_encode_absolute_tolerance": 0.00002,
+  "mean_encode_absolute_tolerance": 0.000002,
+  "max_decode_absolute_tolerance": 0.00003,
+  "mean_decode_absolute_tolerance": 0.000003
+}

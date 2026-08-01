@@ -1,0 +1,10 @@
+#!/usr/bin/env julia
+
+using Reels
+
+try
+    Reels.reels_main()
+catch error
+    Base.display_error(stderr, Base.catch_stack())
+    exit(1)
+end
